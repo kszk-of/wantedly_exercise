@@ -18,4 +18,21 @@ class UserTest < ActiveSupport::TestCase
   	@user.email = "     "
   	assert_not @user.valid?
   end
+
+  test "長すぎるname(50以上)はダメ" do
+  	@user.name = "a"*51
+  	assert_not @user.valid?
+  end
+
+  test "長すぎるemail(255以上)はダメ" do
+  	@user.email = "a"*244 + "@example.com"
+  	assert_not @user.valid?
+  end
+
+  test "emailアドレスは一意であるべき" do
+  	duplicate_user = @user.dup
+  	duplicate_user.email = @user.email.upcase
+  	@user.save
+  	assert_not duplicate_user.valid?
+  end
 end
