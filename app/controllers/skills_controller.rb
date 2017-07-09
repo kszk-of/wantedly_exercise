@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+	before_action :logged_in_user, only: [:create, :destroy]
 	def create
 		@skill = current_user.skills.build(skill_params)
 		if @skill.save
