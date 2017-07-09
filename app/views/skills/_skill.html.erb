@@ -7,4 +7,5 @@
 	<% if current_user?(skill.user) %>
 		<%= link_to "delete", skill, method: :delete, data: {confirm: "削除しますか？"} %>
 	<% end %>
+	<%= render partial: 'likes/like', locals: { skill: skill, likes: @likes } %>
 </li>

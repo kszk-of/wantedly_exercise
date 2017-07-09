@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   	@skills = @user.skills
+    @likes = Like.where(skill_id: params[:skill_id])
   end
 
   def create

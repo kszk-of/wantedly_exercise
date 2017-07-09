@@ -1,0 +1,15 @@
+<% if skill.like_user(current_user.id) %>
+  <%= button_to skill_like_path(likes, skill_id: skill.id), method: :delete, id: "like-button", remote: true do %> 
+    <%= image_tag("icon_red_heart.png") %>
+    <span>
+      <%= skill.likes_count %>
+    </span>
+  <% end %>
+<% else %>
+  <%= button_to skill_likes_path(skill),id: "like-button", remote: true do %>
+    <%= image_tag("icon_heart.png") %>
+    <span>
+      <%= skill.likes_count %>
+    </span>
+  <% end %>
+<% end %>
