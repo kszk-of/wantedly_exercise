@@ -2,7 +2,7 @@ class SkillsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
 	before_action :correct_user, only: :destroy
 	def create
-		@skill = current_user.skills.build(skill_params)
+		@skill = User.find_by(id: params[:skill][:target_id].to_i).skills.build(skill_params)
 		if @skill.save
 			flash[:success] = "スキルが追加されました"
 			redirect_to root_url

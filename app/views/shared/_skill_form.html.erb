@@ -3,5 +3,6 @@
   <div class="field">
   	<%= f.text_area :name, placeholder: "スキルを追加する" %>
   </div>
+  	<%= f.hidden_field :target_id, value: params[:id].to_i %>
     <%= f.submit "追加", class: "btn btn-primary" %>
 <% end %>
