@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @skill = current_user.skills.build
   	@skills = @user.skills
     @likes = Like.where(skill_id: params[:skill_id])
+    @followers_of_this_user = Relationship.where(follower_id: current_user.id).pluck(:followed_id)
   end
 
   def create

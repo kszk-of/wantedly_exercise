@@ -19,8 +19,10 @@
       </ol>
     <% end %>
     <br>
-    <section>
-      <%= render 'shared/skill_form' %>
-    </section>
+    <% if @followers_of_this_user.include?(params[:id].to_i) || params[:id].to_i == current_user.id %>
+      <section>
+        <%= render 'shared/skill_form' %>
+      </section>
+    <% end %>
   </div>
 </div>
