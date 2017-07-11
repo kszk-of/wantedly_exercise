@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
 		@skill = User.find_by(id: params[:skill][:target_id].to_i).skills.build(skill_params)
 		if @skill.save
 			flash[:success] = "スキルが追加されました"
-			redirect_to root_url
+			redirect_to user_path(id: params[:skill][:target_id])
 		else
 			@feed_items = []
 			render 'users/new'
