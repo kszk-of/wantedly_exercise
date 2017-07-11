@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @skill = current_user.skills.build
-  	@skills = @user.skills
+  	@skills = @user.skills.sort_by {|a| [a[:likes_count].to_i]}.reverse
     @likes = Like.where(skill_id: params[:skill_id])
     @followers_of_this_user = Relationship.where(follower_id: current_user.id).pluck(:followed_id)
   end
