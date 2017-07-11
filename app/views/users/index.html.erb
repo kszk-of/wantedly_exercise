@@ -1,4 +1,5 @@
 <% provide(:title, 'ユーザー一覧') %>
+<h3>User一覧</h3>
 <% @users.each do |user| %>
 	<%if user !=current_user%>
 		<%=user.name%> <%= link_to "Profile", user %><br />
