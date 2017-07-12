@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'will_paginate'
 gem 'bootstrap-sass', '3.3.7'
+gem 'jquery-turbolinks'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'bullet', :group => :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
