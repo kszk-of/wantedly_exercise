@@ -13,7 +13,7 @@ class SkillsController < ApplicationController
 				render 'users/new'
 			end
 		else
-			redirect_to request.referrer
+			redirect_to request.referrer, alert: '登録済みのスキルです'
 		end
 	end
 
