@@ -3,12 +3,17 @@ class SkillsController < ApplicationController
 	before_action :correct_user, only: :destroy
 	def create
 		@skill = User.find_by(id: params[:skill][:target_id].to_i).skills.build(skill_params)
-		if @skill.save
-			flash[:success] = "スキルが追加されました"
-			redirect_to user_path(id: params[:skill][:target_id])
+		@skills = User.find_by(id: params[:skill][:target_id].to_i).skills.pluck(:name)
+		unless @skills.include?(@skill.name)
+			if @skill.save
+				flash[:success] = "スキルが追加されました"
+				redirect_to user_path(id: params[:skill][:target_id])
+			else
+				@feed_items = []
+				render 'users/new'
+			end
 		else
-			@feed_items = []
-			render 'users/new'
+			redirect_to request.referrer
 		end
 	end
 
