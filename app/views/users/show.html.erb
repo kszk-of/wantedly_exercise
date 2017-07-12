@@ -23,7 +23,7 @@
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.skills.any? %>
-      <h3>Skills (<%= @user.skills.count %>)</h3>
+      <h3>スキル・特徴 (<%= @user.skills.count %>)</h3>
       <ol class="skills">
         <%= render @skills %>
       </ol>

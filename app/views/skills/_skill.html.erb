@@ -1,8 +1,12 @@
-<li id="skill-<%= skill.id %>">
-	<span class="content"><%= skill.name %></span>
-
-	<% if current_user?(skill.user) %>
+<ul>
+	<table>
+		<tr>
+			<th><%= render partial: 'likes/like', locals: { skill: skill, likes: @likes } %></th>
+			<th><h4>　<%= skill.name %></h4></th>
+			<th><% if current_user?(skill.user) %>
 		<%= link_to "delete", skill, method: :delete, data: {confirm: "削除しますか？"} %>
-	<% end %>
-	<%= render partial: 'likes/like', locals: { skill: skill, likes: @likes } %>
-</li>
+			<% end %>
+			</th>
+		</tr>
+	</table>
+</ul>
