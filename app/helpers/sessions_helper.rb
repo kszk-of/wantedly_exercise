@@ -23,4 +23,8 @@ module SessionsHelper
 		session.delete(:user_id)
 		@current_user = nil
 	end
+
+    def user_liked(user_id)
+      User.find_by(id: user_id)
+    end
 end

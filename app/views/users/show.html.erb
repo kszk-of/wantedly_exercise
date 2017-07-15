@@ -25,7 +25,13 @@
     <% if @user.skills.any? %>
       <h3>スキル・特徴 (<%= @user.skills.count %>)</h3>
       <ol class="skills">
-        <%= render @skills %>
+        <% @skills.each_with_index do |skill, i| %>
+        	<% if i < 6 %>
+      	  		<%= render partial: 'skills/skill', locals: {skill: skill, user_liked_ids: @user_liked_ids[i]} %>
+      	  	<% else %>
+      	  		<%= render partial: 'skills/skill', locals: {skill: skill, user_liked_ids: false} %>
+      	  	<% end %>
+      	<% end %>
       </ol>
     <% end %>
     <br>

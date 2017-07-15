@@ -2,7 +2,18 @@
 	<table>
 		<tr>
 			<th><%= render partial: 'likes/like', locals: { skill: skill, likes: @likes } %></th>
-			<th><h4>　<%= skill.name %></h4></th>
+			<% if user_liked_ids %>
+			<th><h4>　<%= skill.name %>　</h4></th>
+				<th>  Liked by: </th>
+				<th>
+						<% user_liked_ids.each do |user_liked_id| %>	
+							<%= user_liked(user_liked_id)[:name] %>
+						<% end %>
+
+				</th>
+			<% else %>
+			<th><h5>　<%= skill.name %>　</h5></th>
+			<% end %>
 			<th><% if current_user?(skill.user) %>
 		<%= link_to "delete", skill, method: :delete, data: {confirm: "削除しますか？"} %>
 			<% end %>

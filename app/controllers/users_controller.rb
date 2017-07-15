@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     @skill = current_user.skills.build
   	@skills = @user.skills.sort_by {|a| [a[:likes_count].to_i]}.reverse
     @likes = Like.where(skill_id: params[:skill_id])
+
+    @skills_ids = @skills.pluck('id')
+    @user_liked_ids = []
+    @skills_ids.each { |skill_id|
+      like_ids_by_skill = Like.where(skill_id: skill_id)
+      @user_liked_ids << like_ids_by_skill.pluck('user_id')
+    }
     @followers_of_this_user = Relationship.where(follower_id: current_user.id).pluck(:followed_id)
   end
 

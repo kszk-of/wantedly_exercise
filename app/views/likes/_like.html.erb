@@ -9,7 +9,11 @@
   <%= button_to skill_likes_path(skill),id: "like-button", remote: true do %>
     <%= image_tag("icon_heart.png") %>
     <span>
-      <%= skill.likes_count %>
+    <% if skill.likes_count%>
+        <%= skill.likes_count %>
+    <% else %>
+        0
+    <% end %>
     </span>
   <% end %>
 <% end %>
