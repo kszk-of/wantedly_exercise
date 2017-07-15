@@ -1,25 +1,23 @@
-# README
+wantedly_exercise
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザーのログイン、相互フォロー、スキルの登録、スキルスコアの追加など基礎的な機能を持たせたアプリです。
 
-Things you may want to cover:
+## 工夫した部分
+#### オプショナル部分
+・+1の回数が多い上位6件は、それぞれ最大10人まで+1した人が表示されている
+・他の人につけた+1をキャンセルすることができる
+・他の人が自分につけたスキルを消すことができる
 
-* Ruby version
+#### 自分で追加した部分
+・Gravatarを用いたプロフィール画像表示機能
+・ログイン・ログアウト機能
+・相互フォロー機能
 
-* System dependencies
+## Licence
 
-* Configuration
+[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
-* Database creation
+## Author
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# wantedly_exercise
+[kszk-of](https://github.com/kszk-of)
