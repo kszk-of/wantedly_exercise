@@ -6,7 +6,7 @@
 			<th><h4>　<%= skill.name %>　</h4></th>
 				<th>  Liked by: </th>
 				<th>
-						<% user_liked_ids.each do |user_liked_id| %>	
+						<% user_liked_ids.first(10).each do |user_liked_id| %>	
 							<%= user_liked(user_liked_id)[:name] %>
 						<% end %>
 
